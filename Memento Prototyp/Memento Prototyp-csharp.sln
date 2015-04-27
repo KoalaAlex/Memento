@@ -5,8 +5,6 @@ Project("{6CBB1FF7-2122-F046-E91A-BBAC139404F7}") = "Memento Prototyp", "Assembl
 EndProject
 Project("{6CBB1FF7-2122-F046-E91A-BBAC139404F7}") = "Memento Prototyp", "Assembly-CSharp-vs.csproj", "{A8115611-1B5E-073E-99E9-50A7E30D5931}"
 EndProject
-Project("{6CBB1FF7-2122-F046-E91A-BBAC139404F7}") = "Memento Prototyp", "Assembly-CSharp-Editor-vs.csproj", "{AD7BAF78-E90B-0312-B670-47FB75999579}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,15 +19,11 @@ Global
 		{A8115611-1B5E-073E-99E9-50A7E30D5931}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8115611-1B5E-073E-99E9-50A7E30D5931}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8115611-1B5E-073E-99E9-50A7E30D5931}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD7BAF78-E90B-0312-B670-47FB75999579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD7BAF78-E90B-0312-B670-47FB75999579}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD7BAF78-E90B-0312-B670-47FB75999579}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD7BAF78-E90B-0312-B670-47FB75999579}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-														GlobalSection(MonoDevelopProperties) = preSolution
+																							GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
