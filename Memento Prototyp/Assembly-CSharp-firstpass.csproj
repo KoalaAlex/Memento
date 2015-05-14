@@ -59,6 +59,7 @@
      <Compile Include="Assets\Standard Assets\Cameras\Scripts\PivotBasedCameraRig.cs" />
      <Compile Include="Assets\Standard Assets\Cameras\Scripts\ProtectCameraFromWallClip.cs" />
      <Compile Include="Assets\Standard Assets\Cameras\Scripts\TargetFieldOfView.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
      <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\ButtonHandler.cs" />
      <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
@@ -92,12 +93,52 @@
      <Compile Include="Assets\Standard Assets\Utility\TimedObjectDestructor.cs" />
      <Compile Include="Assets\Standard Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\Standard Assets\Utility\WaypointProgressTracker.cs" />
+     <None Include="Assets\Forest Creatures Pack\Forest Bat\Read me.txt" />
+     <None Include="Assets\GoldenZebra\Image Effects\BloomPro\Shaders\Resources\FxProTap.shader" />
+     <None Include="Assets\PigeonCoopToolkit\__SharedDemoAssets\_Shaders\Unlit Transparent Color.shader" />
+     <None Include="Assets\2DLightAssets\Shaders\VertexColor.shader" />
+     <None Include="Assets\Forest Creatures Pack\Treasure Goblin\Read me.txt" />
+     <None Include="Assets\Forest Creatures Pack\Evil Mushroom\Read me.txt" />
+     <None Include="Assets\Sonic Ether\Natural Bloom\Shaders\SENaturalBloomAndDirtyLens.shader" />
+     <None Include="Assets\GoldenZebra\Image Effects\BloomPro\Demo\Reflect-Glossy.shader" />
+     <None Include="Assets\2DLightAssets\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
+     <None Include="Assets\2DLightAssets\Shaders\DepthMask.shader" />
+     <None Include="Assets\Sonic Ether\Natural Bloom\Shaders\SEParticlesAdditive.shader" />
+     <None Include="Assets\Forest Creatures Pack\Monster Bee\Read me.txt" />
+     <None Include="Assets\GestureRecognizer\Resources\numbers.xml" />
+     <None Include="Assets\Forest Creatures Pack\Fantasy Dragon\Read me.txt" />
+     <None Include="Assets\GestureRecognizer\Resources\multistroke_shapes.xml" />
+     <None Include="Assets\Fireballs\Simple Particle Scaler\Simple Particle Scaler - Readme.txt" />
+     <None Include="Assets\Fireballs\Fireballs Readme.txt" />
+     <None Include="Assets\Forest Creatures Pack\Treant Guard\Read me.txt" />
+     <None Include="Assets\GoldenZebra\Image Effects\BloomPro\Shaders\Resources\BloomPro.shader" />
+     <None Include="Assets\2DLightAssets\Shaders\OffsetShader.shader" />
+     <None Include="Assets\Forest Creatures Pack\Forest Bunny\Read me.txt" />
+     <None Include="Assets\GestureRecognizer\Resources\shapes.xml" />
      <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
+     <None Include="Assets\Forest Creatures Pack\Forest Golem\Read me.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\Forest Creatures Pack\Forest Wolf\Read me.txt" />
+     <None Include="Assets\GoldenZebra\Image Effects\BloomPro\Shaders\Resources\SeparableBlur.cginc" />
+     <None Include="Assets\Forest Creatures Pack\Carnivorous Plant\Read me.txt" />
+     <None Include="Assets\PigeonCoopToolkit\__SharedDemoAssets\Sword\sword License.txt" />
+     <None Include="Assets\GoldenZebra\Image Effects\BloomPro\Shaders\Resources\FxPro.shader" />
+     <None Include="Assets\Sonic Ether\Natural Bloom\Shaders\SEEmissiveTextured.shader" />
+     <None Include="Assets\2DLightAssets\Shaders\Gradient-ZFighting.shader" />
+     <None Include="Assets\PigeonCoopToolkit\__SharedDemoAssets\a-104 Rifle\a-104 Rifle License.txt" />
+     <None Include="Assets\PigeonCoopToolkit\__SharedDemoAssets\_Shaders\DiffuseColorMask.shader" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
+     <None Include="Assets\Resources\own_gesture.xml" />
+     <None Include="Assets\ICode\Version Changes.txt" />
+     <None Include="Assets\GoldenZebra\Image Effects\BloomPro\Demo\Skybox.shader" />
+     <None Include="Assets\Forest Creatures Pack\Nymph Fairy\Read me.txt" />
+     <None Include="Assets\GestureRecognizer\Resources\alphabet.xml" />
      <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="pseudoSinCos">
+ <HintPath>/Users/alex/Unity/Memento Prototyp/Assets/2DLightAssets/Scripts/Helpers/pseudoSinCos.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
