@@ -65,7 +65,6 @@
      <Compile Include="Assets\Camera Shake\_Main\Source\Base\CameraShakeBase.cs" />
      <Compile Include="Assets\Camera Shake\_Main\Source\Internal\Base\CameraShakeDocumentationName.cs" />
      <Compile Include="Assets\Camera Shake\_Main\Source\Internal\Base\VersionInfo.cs" />
-     <Compile Include="Assets\GestureRecScript.cs" />
      <Compile Include="Assets\GestureRecognizer\Scripts\Demo\GestureCapturePoints.cs" />
      <Compile Include="Assets\GestureRecognizer\Scripts\Demo\GestureDemoEvent.cs" />
      <Compile Include="Assets\GestureRecognizer\Scripts\Demo\MultiStrokeCapturePoints.cs" />
@@ -634,9 +633,13 @@
      <Compile Include="Assets\ICode\Scripts\Runtime\Variables\GlobalVariables.cs" />
      <Compile Include="Assets\ICode\Scripts\Runtime\Variables\SerializedVariable.cs" />
      <Compile Include="Assets\ICode\Scripts\Runtime\Variables\SetGlobalGameObject.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\GestureRecScript.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\KeyboardControl.cs" />
      <Compile Include="Assets\Own Assets\Scripts\MoveLight.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\MoveLightKeyboard.cs" />
      <Compile Include="Assets\Own Assets\Scripts\OwnCameraShakeScript.cs" />
      <Compile Include="Assets\Own Assets\Scripts\SwitchUI.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\moveEnemy.cs" />
      <Compile Include="Assets\PigeonCoopToolkit\Effects\Trails\SmokePlume.cs" />
      <Compile Include="Assets\PigeonCoopToolkit\Effects\Trails\SmokeTrail.cs" />
      <Compile Include="Assets\PigeonCoopToolkit\Effects\Trails\SmoothTrail.cs" />
@@ -674,7 +677,6 @@
      <Compile Include="Assets\Sonic Ether\Natural Bloom\Demo Scene\Scripts\SENBDLMainCube.cs" />
      <Compile Include="Assets\Sonic Ether\Natural Bloom\Demo Scene\Scripts\SENBDLOrbitingCube.cs" />
      <Compile Include="Assets\Sonic Ether\Natural Bloom\Scripts\SENaturalBloomAndDirtyLens.cs" />
-     <Compile Include="Assets\moveEnemy.cs" />
      <None Include="Assets\Forest Creatures Pack\Forest Bat\Read me.txt" />
      <None Include="Assets\GoldenZebra\Image Effects\BloomPro\Shaders\Resources\FxProTap.shader" />
      <None Include="Assets\PigeonCoopToolkit\__SharedDemoAssets\_Shaders\Unlit Transparent Color.shader" />

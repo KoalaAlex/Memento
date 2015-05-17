@@ -2,13 +2,21 @@
 using System.Collections;
 
 public class MoveLight : MonoBehaviour {
-	Vector2 scrollDelta;
-	Vector2 scrollDistance;
+
 	bool moveable = false;
 
+	// Move Light Auto
+	public float distanceX = 6f;
+	public float distanceY = 3.5f;
+	public float speed = 1.2f;
+	private bool active = false;
+	private float startTime;
+	private Vector3 vectorPlayerLight = new Vector3(0,0,0);
+	private float journeyLength = 1f;
+	private Transform goPlayer;
+	private float temp;
 	void Start(){
-		scrollDistance.x = transform.position.x;
-		scrollDistance.y = transform.position.y;
+		goPlayer = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 	/*
 	void Update() {
@@ -43,10 +51,43 @@ public class MoveLight : MonoBehaviour {
 				Touch myTouch = Input.GetTouch(0);
 				Vector3 touchPositionWorld = Camera.main.ScreenToWorldPoint(myTouch.position);
 				transform.position = new Vector3 (touchPositionWorld.x, touchPositionWorld.y - transform.localScale.y, 0f);
-				/* scrollDistance.x = scrollDistance.x + scrollDelta.x * Time.deltaTime * 0.5f;
-			scrollDistance.y = scrollDistance.y + scrollDelta.y * Time.deltaTime * 0.5f;
-			transform.position = new Vector3 (scrollDistance.x, scrollDistance.y, 0); */
 			}
+		}
+		MoveLightBehindPlayer();
+	}
+
+	void MoveLightBehindPlayer(){
+		// Falls es ein UI Input gibt, dann füre die Positionsabfrage aus -- Alex
+		if(UnityStandardAssets._2D.Platformer2DUserControl.uiControlActive){
+			// Distance in X , greater than distanceX
+			if(Mathf.Abs(transform.position.x - goPlayer.position.x) > distanceX){
+				if(!active)
+				{
+					active = true;
+					startTime = Time.time;
+				}
+			};
+			// Distance in Y , greater than distanceY
+			if(Mathf.Abs(transform.position.y - goPlayer.position.y) > distanceY){
+				if(!active)
+				{
+					active = true;
+					startTime = Time.time;
+				}
+			};
+		}
+		if(active){
+			MoveForSeconds();
+		}
+	}
+
+	void MoveForSeconds(){
+		vectorPlayerLight.x = transform.position.x - (transform.position.x - goPlayer.position.x) * speed * Time.deltaTime;
+		vectorPlayerLight.y = transform.position.y - (transform.position.y - goPlayer.position.y) * speed * Time.deltaTime;
+		vectorPlayerLight.z = transform.position.z;
+		transform.position =  vectorPlayerLight;
+		if(Time.time - startTime > journeyLength){
+			active = false;
 		}
 	}
 }
