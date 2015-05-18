@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Plugins\Hell Tap Entertainment\Common\Scripts\HTE_MiniJSON.cs" />
      <Compile Include="Assets\Standard Assets\2D\Scripts\Camera2DFollow.cs" />
      <Compile Include="Assets\Standard Assets\2D\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Standard Assets\2D\Scripts\Platformer2DUserControl.cs" />
@@ -99,12 +100,9 @@
      <None Include="Assets\2DLightAssets\Shaders\VertexColor.shader" />
      <None Include="Assets\Forest Creatures Pack\Treasure Goblin\Read me.txt" />
      <None Include="Assets\Forest Creatures Pack\Evil Mushroom\Read me.txt" />
-     <None Include="Assets\Sonic Ether\Natural Bloom\Shaders\SENaturalBloomAndDirtyLens.shader" />
      <None Include="Assets\GoldenZebra\Image Effects\BloomPro\Demo\Reflect-Glossy.shader" />
      <None Include="Assets\2DLightAssets\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
      <None Include="Assets\2DLightAssets\Shaders\DepthMask.shader" />
-     <None Include="Assets\Sonic Ether\Natural Bloom\Shaders\SEParticlesAdditive.shader" />
-     <None Include="Assets\Forest Creatures Pack\Monster Bee\Read me.txt" />
      <None Include="Assets\GestureRecognizer\Resources\numbers.xml" />
      <None Include="Assets\Forest Creatures Pack\Fantasy Dragon\Read me.txt" />
      <None Include="Assets\GestureRecognizer\Resources\multistroke_shapes.xml" />
@@ -120,10 +118,8 @@
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Forest Creatures Pack\Forest Wolf\Read me.txt" />
      <None Include="Assets\GoldenZebra\Image Effects\BloomPro\Shaders\Resources\SeparableBlur.cginc" />
-     <None Include="Assets\Forest Creatures Pack\Carnivorous Plant\Read me.txt" />
      <None Include="Assets\PigeonCoopToolkit\__SharedDemoAssets\Sword\sword License.txt" />
      <None Include="Assets\GoldenZebra\Image Effects\BloomPro\Shaders\Resources\FxPro.shader" />
-     <None Include="Assets\Sonic Ether\Natural Bloom\Shaders\SEEmissiveTextured.shader" />
      <None Include="Assets\2DLightAssets\Shaders\Gradient-ZFighting.shader" />
      <None Include="Assets\PigeonCoopToolkit\__SharedDemoAssets\a-104 Rifle\a-104 Rifle License.txt" />
      <None Include="Assets\PigeonCoopToolkit\__SharedDemoAssets\_Shaders\DiffuseColorMask.shader" />

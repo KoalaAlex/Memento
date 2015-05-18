@@ -50,7 +50,7 @@ public class MoveLight : MonoBehaviour {
 			if (moveable) {
 				Touch myTouch = Input.GetTouch(0);
 				Vector3 touchPositionWorld = Camera.main.ScreenToWorldPoint(myTouch.position);
-				transform.position = new Vector3 (touchPositionWorld.x, touchPositionWorld.y - transform.localScale.y, 0f);
+				transform.position = new Vector3 (touchPositionWorld.x, touchPositionWorld.y, 0f);
 			}
 		}
 		MoveLightBehindPlayer();
