@@ -638,6 +638,7 @@
      <Compile Include="Assets\Own Assets\Scripts\KeyboardControl.cs" />
      <Compile Include="Assets\Own Assets\Scripts\MoveLight.cs" />
      <Compile Include="Assets\Own Assets\Scripts\MoveLightKeyboard.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\MoveLight_Panel.cs" />
      <Compile Include="Assets\Own Assets\Scripts\OwnCameraShakeScript.cs" />
      <Compile Include="Assets\Own Assets\Scripts\SwitchUI.cs" />
      <Compile Include="Assets\Own Assets\Scripts\moveEnemy.cs" />
