@@ -81,7 +81,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 		/* KeyboardControl / Platformer2DUserControl*/
 		void MoveLightBehindPlayer(){
 			// Falls es ein UI Input gibt, dann füre die Positionsabfrage aus -- Alex
-			if(UnityStandardAssets._2D.KeyboardControl.uiControlActive){
+			if(UnityStandardAssets._2D.Platformer2DUserControl.uiControlActive){
 				// Distance in X , greater than distanceX
 				if(Mathf.Abs(transform.position.x - goPlayer.position.x) > distanceX){
 					if(!active)

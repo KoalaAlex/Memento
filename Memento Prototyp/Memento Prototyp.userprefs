@@ -1,8 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Own Assets/Scripts/moveEnemySpine.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Own Assets/Scripts/ActivateComponentsFrom.cs">
     <Files>
-      <File FileName="Assets/Own Assets/Scripts/moveEnemySpine.cs" Line="22" Column="1" />
+      <File FileName="Assets/Own Assets/Scripts/ActivateComponentsFrom.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
