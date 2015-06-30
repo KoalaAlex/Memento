@@ -42,6 +42,7 @@ public class interface_manager: MonoBehaviour {
 
 			Vector2 p = cam.ScreenToWorldPoint(Input.mousePosition);
 
+
 			//if(Input.GetKey(KeyCode.LeftControl) == true){
 				Material m = new Material( cLight.GetComponent<DynamicLight>().lightMaterial as Material); 
 				
@@ -52,9 +53,10 @@ public class interface_manager: MonoBehaviour {
 				nLight.AddComponent<DynamicLight>();
 				//m.color = new Color(Random.Range(0f,1f),Random.Range(0f,1f),Random.Range(0f,1f));
 				nLight.GetComponent<DynamicLight>().lightMaterial = m;
-				nLight.transform.position = p;
+				nLight.transform.localPosition = new Vector3(p.x,p.y,0);
 				nLight.GetComponent<DynamicLight>().lightRadius = 40;
 				nLight.GetComponent<DynamicLight>().Layer = cLight.GetComponent<DynamicLight>().Layer;
+				nLight.GetComponent<DynamicLight>().staticScene = true;
 				
 				GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
 				quad.transform.parent = nLight.transform;

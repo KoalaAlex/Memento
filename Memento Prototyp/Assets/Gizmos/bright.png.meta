@@ -1,5 +1,28 @@
 fileFormatVersion: 2
 guid: 7e06844b8efd7fc42a372c52006cfa59
+labels:
+- light
+- 2dLight
+- martin
+- ysa
+- 2d
+- 2dsystem
+- system
+- shadow
+- 2dshadow
+- shadows
+- realtime
+- dynamic
+- free
+- gpu
+- lighting
+- kit
+- tool
+- smooth
+- shine
+- dark
+- umbra
+- penumbra
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2

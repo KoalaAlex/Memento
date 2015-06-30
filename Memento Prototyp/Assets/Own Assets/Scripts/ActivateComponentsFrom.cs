@@ -3,8 +3,8 @@ using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class ActivateComponentsFrom : MonoBehaviour {
-	public GameObject goPlayer;
-	public GameObject goEnemy;
+	private GameObject goPlayer;
+	public GameObject[] goEnemys;
 	public string nameComponent = "Platformer2DUserControl";
 
 	// Use this for initialization
@@ -15,12 +15,17 @@ public class ActivateComponentsFrom : MonoBehaviour {
 	/* Platformer2DUserControl / KeyboardControl */
 	void DeactivateActions(){
 		goPlayer.GetComponent<UnityStandardAssets._2D.Platformer2DUserControl>().enabled = false;
-		goEnemy.GetComponent<ICode.ICodeTrigger2D>().enabled = false;
+		for (int i = 0; i < goEnemys.Length; i++){
+			goEnemys[i].GetComponent<ICode.ICodeTrigger2D>().enabled = false;
+		}
 	}
 
 	IEnumerator ActivateActions(){
 		yield return new WaitForSeconds(1);
+		print ("DIalog ENDE!");
 		goPlayer.GetComponent<UnityStandardAssets._2D.Platformer2DUserControl>().enabled = true;
-		goEnemy.GetComponent<ICode.ICodeTrigger2D>().enabled = true;
+		for (int i = 0; i < goEnemys.Length; i++){
+			goEnemys[i].GetComponent<ICode.ICodeTrigger2D>().enabled = true;
+		}
 	}
 }

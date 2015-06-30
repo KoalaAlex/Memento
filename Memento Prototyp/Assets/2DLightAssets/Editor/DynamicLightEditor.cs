@@ -3,7 +3,10 @@ using UnityEditor;
 using System.Collections;
 
 [CustomEditor (typeof (DynamicLight))] 
+[CanEditMultipleObjects]
+
 public class DynamicLightEditor : Editor {
+
 
 	[MenuItem ("GameObject/2D Object/2D Dynamic Light/Add Light Point")]
 	static void Create(){
@@ -35,7 +38,7 @@ public class DynamicLightEditor : Editor {
 		emptyChild.transform.parent = empty.transform;
 		emptyChild.layer = 8;
 		empty.transform.position = new Vector3(5,0,0);
-		
+		DynamicLight.reloadMeshes = true;
 	}
 
 	[MenuItem ("GameObject/2D Object/2D Dynamic Light/Casters/Square")]
@@ -45,6 +48,9 @@ public class DynamicLightEditor : Editor {
 		GameObject hex = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
 		hex.transform.position = new Vector3(5,0,0);
 		hex.name = "square";
+		DynamicLight.reloadMeshes = true;
+
+
 		
 	}
 
@@ -55,6 +61,7 @@ public class DynamicLightEditor : Editor {
 		GameObject hex = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
 		hex.transform.position = new Vector3(5,0,0);
 		hex.name = "circle";
+		DynamicLight.reloadMeshes = true;
 		
 	}
 
@@ -65,6 +72,7 @@ public class DynamicLightEditor : Editor {
 		GameObject hex = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
 		hex.transform.position = new Vector3(5,0,0);
 		hex.name = "circle(optimized)";
+		DynamicLight.reloadMeshes = true;
 		
 	}
 
@@ -75,6 +83,7 @@ public class DynamicLightEditor : Editor {
 		GameObject hex = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
 		hex.transform.position = new Vector3(5,0,0);
 		hex.name = "hexagon";
+		DynamicLight.reloadMeshes = true;
 
 	}
 	[MenuItem ("GameObject/2D Object/2D Dynamic Light/Casters/Pacman")]
@@ -84,6 +93,7 @@ public class DynamicLightEditor : Editor {
 		GameObject hex = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
 		hex.transform.position = new Vector3(5,0,0);
 		hex.name = "pacman";
+		DynamicLight.reloadMeshes = true;
 		
 	}
 	[MenuItem ("GameObject/2D Object/2D Dynamic Light/Casters/Star")]
@@ -93,6 +103,7 @@ public class DynamicLightEditor : Editor {
 		GameObject hex = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
 		hex.transform.position = new Vector3(5,0,0);
 		hex.name = "star";
+		DynamicLight.reloadMeshes = true;
 	}
 
 
@@ -116,7 +127,9 @@ public class DynamicLightEditor : Editor {
 			layerm = serializedObject.FindProperty ("Layer"),
 			enableNotifyGameObjectsReached = serializedObject.FindProperty("notifyGameObjectsReached"),
 			intelliderConvex = serializedObject.FindProperty("intelliderConvex"),
-			recalcNorms = serializedObject.FindProperty("recalculateNormals");
+			staticScene = serializedObject.FindProperty("staticScene"),
+			recalcNorms = serializedObject.FindProperty("recalculateNormals"),
+			debugLines = serializedObject.FindProperty("debugLines");
 
 
 		EditorGUILayout.IntSlider(segments, 3, 20);
@@ -145,9 +158,11 @@ public class DynamicLightEditor : Editor {
 		EditorGUILayout.HelpBox("Optimizations:", MessageType.None);
 		EditorGUILayout.PropertyField(enableNotifyGameObjectsReached);
 		EditorGUILayout.PropertyField(intelliderConvex);
+		EditorGUILayout.PropertyField(staticScene);
 
 		EditorGUILayout.HelpBox("Rendering Options", MessageType.None);
 		EditorGUILayout.PropertyField(recalcNorms);
+		EditorGUILayout.PropertyField(debugLines);
 
 		EditorGUILayout.HelpBox("2D Light Package PRO version: " + v, MessageType.None);
 
@@ -166,6 +181,31 @@ public class DynamicLightEditor : Editor {
 		}
 
 	}
+
+
+
+	private static Vector3 pointSnap =  Vector3.one * 0.1f;
+	
+	void OnSceneGUI () {
+		DynamicLight light = target as DynamicLight;
+		if(light){
+			Transform lTransform = light.transform;
+			Vector3 oldPoint = lTransform.TransformPoint(new Vector3(light.lightRadius,0,0));
+			float size = HandleUtility.GetHandleSize(oldPoint);
+			Vector3 newPoint = Handles.FreeMoveHandle(
+				oldPoint, Quaternion.identity,size * 0.05f, pointSnap, Handles.DotCap);
+				if (oldPoint != newPoint) {
+					Undo.RecordObject(light, "resize radiusLight");
+					light.lightRadius = (lTransform.InverseTransformPoint(newPoint).magnitude);
+				}
+				
+			Handles.color = Color.yellow;
+			Handles.DrawWireDisc(lTransform.position,new Vector3(0,0,-1), light.lightRadius);
+
+		}
+		
+	}
+
 
 	void OnDrawGizmos() {
 		DynamicLight obj;

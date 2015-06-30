@@ -14,6 +14,15 @@ labels:
 - realtime
 - dynamic
 - free
+- gpu
+- lighting
+- kit
+- tool
+- smooth
+- shine
+- dark
+- umbra
+- penumbra
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2

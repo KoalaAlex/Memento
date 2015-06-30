@@ -2,7 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;		// This allows for the use of lists, like <GameObject>
-using pseudoSinCos;
+//using pseudoSinCos;
 
 
 
@@ -27,7 +27,7 @@ public class DynamicLight : MonoBehaviour {
 	public delegate void OnReachedDelegate(GameObject[] go);
 	public event OnReachedDelegate OnReachedGameObjects;
 
-	public string version = "1.1.2 (Unity 5)";
+	public string version = "1.3";
 
 	public Material lightMaterial;
 	public PolygonCollider2D[] allMeshes;									// Array for all of the meshes in our scene
@@ -40,9 +40,13 @@ public class DynamicLight : MonoBehaviour {
 	// -- OPTIMISATIONS BOOLS --//
 	public bool notifyGameObjectsReached = false;
 	public bool intelliderConvex = false;
+	public bool staticScene = false;		// this is for load meshes only in start function
+	public static bool reloadMeshes = false;
 
 	// -- OPTIONALS BOOLS --//
 	public bool recalculateNormals = true;
+	public bool flipXYtoXZ = false;
+	public bool debugLines = true;
 
 	
 	[HideInInspector] public int vertexWorking;
@@ -98,7 +102,7 @@ public class DynamicLight : MonoBehaviour {
 
 
 
-		PseudoSinCos.initPseudoSinCos();
+		//PseudoSinCos.initPseudoSinCos();
 		
 		//-- Step 1: obtain all active meshes in the scene --//
 		//---------------------------------------------------------------------//
@@ -111,7 +115,7 @@ public class DynamicLight : MonoBehaviour {
 		lightMesh.MarkDynamic ();
 
 
-
+		reloadMeshes = true;
 
 		
 	}
@@ -121,7 +125,11 @@ public class DynamicLight : MonoBehaviour {
 		//-- Set Layer mask --//
 		setLayerMask();
 
+		TablaSenoCoseno.initSenCos();
+
 		Rebuild();
+
+		getAllMeshes();
 	}
 
 	void Update(){
@@ -130,7 +138,23 @@ public class DynamicLight : MonoBehaviour {
 		fixedLimitations();
 
 		if(lightMesh){
-			getAllMeshes();
+
+
+			if(!Application.isPlaying){
+				getAllMeshes();
+			}else{
+				if(staticScene == true){
+					// Only reload when is notificated 
+					if(reloadMeshes == true){
+						getAllMeshes();
+						reloadMeshes = false;
+					}
+				}else{
+					getAllMeshes();
+				}
+			}
+
+
 			setLight ();
 			renderLightMesh ();
 			resetBounds ();
@@ -143,11 +167,11 @@ public class DynamicLight : MonoBehaviour {
 
 	void fixedLimitations(){
 		gameObject.transform.localScale = Vector3.one;
-		//gameObject.transform.localEulerAngles = Vector3.zero;
 
-		Vector3 pos = gameObject.transform.localPosition;
-		pos.z = 0;
-		gameObject.transform.localPosition = pos;
+		Vector3 cAngle = gameObject.transform.localEulerAngles;
+		cAngle.x = 0;
+		cAngle.y = 0;
+		gameObject.transform.localEulerAngles = cAngle;
 
 		// Angle
 		if(RangeAngle > 360.0001f)
@@ -156,9 +180,61 @@ public class DynamicLight : MonoBehaviour {
 
 	}
 
-	void getAllMeshes(){
 
-		allMeshes = FindObjectsOfType(typeof(PolygonCollider2D)) as PolygonCollider2D[];
+	public void getAllMeshes(){
+
+		// Extract all Polygon2D //
+		PolygonCollider2D[] allPolygon2D = FindObjectsOfType(typeof(PolygonCollider2D)) as PolygonCollider2D[];
+		//allMeshes = FindObjectsOfType(typeof(PolygonCollider2D)) as PolygonCollider2D[];
+
+
+		// Extract all Box2D //
+		BoxCollider2D[] allBox2dCol = FindObjectsOfType(typeof(BoxCollider2D)) as BoxCollider2D[];
+
+		// will have all box2d points mutated to polygoncollider2d
+		PolygonCollider2D[] allBox2DConverted = new PolygonCollider2D[allBox2dCol.Length];
+		for(int i = 0; i< allBox2DConverted.Length; i++){
+
+		}
+
+
+		for(int i = 0; i< allBox2dCol.Length; i++){
+			Vector2[] boxPoints = new Vector2[4];
+			boxPoints[0] = allBox2dCol[i].offset - (allBox2dCol[i].size *.5f); // bottom left
+			boxPoints[1] = new Vector2(allBox2dCol[i].offset.x - (allBox2dCol[i].size.x *.5f), allBox2dCol[i].offset.y + (allBox2dCol[i].size.y *.5f)); // top left
+			boxPoints[2] = new Vector2(allBox2dCol[i].offset.x + (allBox2dCol[i].size.x *.5f), allBox2dCol[i].offset.y - (allBox2dCol[i].size.y *.5f)); // top right
+			boxPoints[3] = allBox2dCol[i].offset + (allBox2dCol[i].size *.5f); // bottom right
+
+			// convert point
+			allBox2DConverted[0] = new PolygonCollider2D();
+			//allBox2DConverted[i].points = new Vector2[4];
+			//allBox2DConverted[0].points = boxPoints;
+
+			//Debug.Log(allBox2DConverted[i].points);
+
+
+			//add to the transformer array
+			//allBox2DConverted[i] = newP;
+		}
+
+
+
+		/*
+
+		// Put All array together
+		allMeshes = new PolygonCollider2D[allPolygon2D.Length + allBox2DConverted.Length];
+		for(int i = 0; i < allPolygon2D.Length; i++){
+			allMeshes[i] = allPolygon2D[i];
+		}
+		for(int i = allPolygon2D.Length; i < (allBox2DConverted.Length + allPolygon2D.Length); i++){
+			allMeshes[i] = allBox2DConverted[i - allPolygon2D.Length];
+		}
+
+		*/
+
+		//---
+		allMeshes = allPolygon2D;
+		//----
 	}
 
 	void resetBounds(){
@@ -200,6 +276,13 @@ public class DynamicLight : MonoBehaviour {
 			tempVerts.Clear();
 			PolygonCollider2D mf = allMeshes[m];
 
+			// -- DELETE CASTER MANUALLY --//
+			if(mf == null){
+				// se ha eliminado un caster
+				reloadMeshes = true;
+				return;
+			}
+
 			// las siguientes variables usadas para arregla bug de ordenamiento cuando
 			// los angulos calcuados se encuentran en cuadrantes mixtos (1 y 4)
 			lows = false; // check si hay menores a -0.5
@@ -219,13 +302,21 @@ public class DynamicLight : MonoBehaviour {
 				Vector3 worldPoint = mf.transform.TransformPoint(mf.points[i]);
 				if((worldPoint - gameObject.transform.position).sqrMagnitude <= lightRadius* lightRadius){
 
-					//float angleWorldPoint = getVectorAngle(true, worldPoint.x,worldPoint.y);
-					//if((angleWorldPoint*Mathf.Rad2Deg > startAngle) && (angleWorldPoint * Mathf.Rad2Deg < endAngle)){
-						//Debug.Log(angleWorldPoint*Mathf.Rad2Deg + "   " + startAngle + "  " + endAngle);
-						mfInWorks = true;
-						i = mf.GetTotalPointCount();
-					//}
+							// -- Here check if first collider point is in Z=0 pos --// for depth position
+					if(flipXYtoXZ){
+						if(mf.transform.TransformPoint(mf.points[i]).y == gameObject.transform.position.y){
+							mfInWorks = true;
+							i = mf.GetTotalPointCount();
+						}
+					}else{
+						if(mf.transform.TransformPoint(mf.points[i]).z == gameObject.transform.position.z){
+							mfInWorks = true;
+							i = mf.GetTotalPointCount();
+						}
+					}
 
+
+						
 				}
 			}
 
@@ -243,30 +334,45 @@ public class DynamicLight : MonoBehaviour {
 
 						verts v = new verts();
 						
-						Vector3 worldPoint = mf.transform.TransformPoint(mf.points[i]);
-						
+						Vector2 worldPoint = (Vector2)mf.transform.TransformPoint(mf.points[i]);
+						Vector2 to = worldPoint - (Vector2)transform.position;
+
 						// Reforma fecha 24/09/2014 (ultimo argumento lighradius X worldPoint.magnitude (expensivo pero preciso))
-						RaycastHit2D ray = Physics2D.Raycast(transform.position, worldPoint - transform.position, (worldPoint - transform.position).magnitude, Layer);
+						RaycastHit2D ray = Physics2D.Raycast(transform.position, to, to.magnitude, Layer);
 						
 						
 						if(ray){
 							v.pos = ray.point;
+							//v.pos = new Vector3(v.pos.x,v.pos.y,transform.position.z); // add depth
+							//Debug.Log(v.pos + "world");
 														
 							if( worldPoint.sqrMagnitude >= (ray.point.sqrMagnitude - magRange) && worldPoint.sqrMagnitude <= (ray.point.sqrMagnitude + magRange) )
 								v.endpoint = true;
 
-							if(notifyGameObjectsReached == true) // work only in neccesary cases -- optimization ver 1.1.0--
-								// GO touched -> pass to list //
-								objReached.Add(ray.collider.gameObject.transform.parent.gameObject);
+							if(notifyGameObjectsReached == true){ // work only in neccesary cases -- optimization ver 1.1.0--
+								if(360 != Mathf.RoundToInt(RangeAngle)){ 
+									if (Vector3.Angle(transform.InverseTransformPoint(v.pos), Vector3.up) < RangeAngle*.5f) {	// Light angle restriction
+										//-- GO reached --> adding to mail list --//
+										objReached.Add(ray.collider.gameObject.transform.parent.gameObject);
+									}
+								}else{
+									//-- GO reached --> adding to main list --//
+									objReached.Add(ray.collider.gameObject.transform.parent.gameObject);
+								}
+							}
 
 						}else{
 							v.pos =  worldPoint;
 							v.endpoint = true;
 						}
-						
-						Debug.DrawLine(transform.position, v.pos, Color.white);	
-						
+
+
+
 						//--Convert To local space for build mesh (mesh craft only in local vertex)
+						v.pos = new Vector3(v.pos.x,v.pos.y, gameObject.transform.position.z);
+						if(debugLines == true)
+							Debug.DrawLine(transform.position, v.pos, Color.white);	
+
 						v.pos = transform.InverseTransformPoint(v.pos); 
 						//--Calculate angle
 						v.angle = getVectorAngle(true,v.pos.x, v.pos.y);
@@ -289,13 +395,15 @@ public class DynamicLight : MonoBehaviour {
 							if (Vector3.Angle(v.pos, Vector3.up) < RangeAngle*.5f) {	// Light angle restriction
 								if((v.pos).sqrMagnitude <= lightRadius*lightRadius){
 									tempVerts.Add(v);
-									Debug.DrawLine(transform.position, transform.TransformPoint(v.pos), Color.white);
+									if(debugLines == true)
+										Debug.DrawLine(transform.position, transform.TransformPoint(v.pos), Color.white);
 								}
 							}
 						}else{
 							if((v.pos).sqrMagnitude <= lightRadius*lightRadius){
 								tempVerts.Add(v);
-								Debug.DrawLine(transform.position, transform.TransformPoint(v.pos), Color.white);
+								if(debugLines == true)
+									Debug.DrawLine(transform.position, transform.TransformPoint(v.pos), Color.white);
 							}
 						}
 
@@ -414,61 +522,72 @@ public class DynamicLight : MonoBehaviour {
 						
 						
 						if(isEndpoint == true){
-							Vector3 dir = (fromCast - transform.position);
-							fromCast += (dir * .001f);
-							
-							
-							
+							Vector2 from = (Vector2) fromCast;
+							Vector2 dir = (from - (Vector2)transform.position);
+
+
+							from += (dir * .001f);
+
+
 							float mag = (lightRadius);// - fromCast.magnitude;
 							//float mag = fromCast.magnitude;
-							RaycastHit2D rayCont = Physics2D.Raycast(fromCast, dir, mag, Layer);
-							//Debug.DrawLine(fromCast, dir.normalized*mag ,Color.green);
+							RaycastHit2D rayCont = Physics2D.Raycast(from, dir, mag, Layer);
+
+
 							
-							
-							Vector3 hitp;
+							Vector2 hitp;
 							if(rayCont){
 								//-- IMPROVED REACHED OBJECTS --// VERSION 1.1.2
 								hitp = rayCont.point;   //world p
-								
+
+								/*
 								if(notifyGameObjectsReached == true){ // work only in neccesary cases -- optimization ver 1.1.0--
-									if((hitp - transform.position ).sqrMagnitude < (lightRadius * lightRadius)){
-										//-- GO reached --> adding to mail list --//
-										objReached.Add(rayCont.collider.gameObject.transform.parent.gameObject);
+									if((hitp - (Vector2)transform.position ).sqrMagnitude < (lightRadius * lightRadius)){
+										// Version 1.3.0 
+										if(360 != Mathf.RoundToInt(RangeAngle)){ 
+											if (Vector3.Angle(transform.InverseTransformPoint(hitp), Vector3.up) < RangeAngle*.5f) {	// Light angle restriction
+												//-- GO reached --> adding to mail list --//
+												//objReached.Add(rayCont.collider.gameObject.transform.parent.gameObject);
+												Debug.Log("caca");
+											}
+										}else{
+											//-- GO reached --> adding to mail list --//
+											//objReached.Add(rayCont.collider.gameObject.transform.parent.gameObject);
+										}
 									}		
 								}
-								
-								Debug.DrawLine(fromCast, hitp, Color.green);
+								*/
+
+								if(debugLines == true)
+									Debug.DrawLine(fromCast, new Vector3(hitp.x, hitp.y, transform.position.z), Color.green);
 							}else{
 								//-- FIX ERROR WEIRD MESH WHEN ENDPOINT COLLIDE OUTSIDE RADIUS VERSION 1.1.2 --//
 								//-- NEW INSTANCE OF DIR VECTOR3 ADDED --//
-								Vector3 newDir = transform.InverseTransformDirection(dir);	//local p
-								hitp = transform.TransformPoint( newDir.normalized * mag); //world p
-								Debug.DrawLine(fromCast, hitp, Color.blue);
+								Vector2 newDir = transform.InverseTransformDirection(dir);	//local p
+								hitp = (Vector2)transform.TransformPoint( newDir.normalized * mag); //world p
+
+								if(debugLines == true)
+									Debug.DrawLine(fromCast, new Vector3(hitp.x, hitp.y, transform.position.z), Color.blue);
 							}
+
 
 							// --- VER 1.0.6 -- //
 							//--- this fix magnitud of end point ray (green) ---//
 
-							if((hitp - transform.position ).sqrMagnitude > (lightRadius * lightRadius)){
+							if((hitp - (Vector2)transform.position ).sqrMagnitude > (lightRadius * lightRadius)){
 								//-- FIX ERROR WEIRD MESH WHEN ENDPOINT COLLIDE OUTSIDE RADIUS VERSION 1.1.2  --//
-								dir = transform.InverseTransformDirection(dir);	//local p
-								hitp = transform.TransformPoint( dir.normalized * mag);
+								dir = (Vector2)transform.InverseTransformDirection(dir);	//local p
+								hitp = (Vector2)transform.TransformPoint( dir.normalized * mag);
 							}
 
-							Debug.DrawLine(fromCast, hitp, Color.green);	
-							
+
+							Vector3 v3Hitp = new Vector3(hitp.x, hitp.y, transform.position.z);
 							verts vL = new verts();
-							vL.pos = transform.InverseTransformPoint(hitp);
-							
+							vL.pos = (Vector3) transform.InverseTransformPoint(v3Hitp);
 							vL.angle = getVectorAngle(true,vL.pos.x, vL.pos.y);
 							allVertices.Add(vL);
 							
-							
-							
-							
-							
-							
-							
+
 						}
 						
 						
@@ -511,42 +630,38 @@ public class DynamicLight : MonoBehaviour {
 			
 			verts v = new verts();
 
-			// THIS FOLLOWING LINE CONSUME 7-8 FPS by LIGHT 
-			PseudoSinCos.initPseudoSinCos();
+			// Initialize static tables
+			TablaSenoCoseno.initSenCos();
 
-			v.pos = new Vector3((PseudoSinCos.SinArray[theta]), (PseudoSinCos.CosArray[theta]), 0); // in dregrees (previous calculate)
+			v.pos = new Vector3((TablaSenoCoseno.SenArray[theta]), (TablaSenoCoseno.CosArray[theta]), 0); // in dregrees (previous calculate)
 
 			Quaternion quat = Quaternion.AngleAxis(RangeAngle*.5f + transform.eulerAngles.z, Vector3.forward);
 			v.pos = quat * v.pos;
 
-			//quat = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
-			//v.pos = quat * v.pos;
-
 			v.pos *= lightRadius;
 			v.pos += transform.position;
-			
-			RaycastHit2D ray = Physics2D.Raycast(transform.position,v.pos - transform.position,lightRadius, Layer);
-			
-			if (!ray){
-				
-				//Debug.DrawLine(transform.position, v.pos, Color.blue);
-				v.pos = transform.InverseTransformPoint(v.pos);
-				v.angle = getVectorAngle(true,v.pos.x, v.pos.y);					// store angle without object rotation -> consistency for sorting
-				allVertices.Add(v);
-				
-			} else {
 
+			Vector3 to = v.pos - transform.position;
+			to.z = gameObject.transform.position.z;
+
+			 
+			RaycastHit2D ray = Physics2D.Raycast(transform.position,to,lightRadius, Layer);
+			//Debug.DrawLine(transform.position, to, Color.blue);
+			
+			if (ray && (to.z == transform.position.z)){
 				v.pos = transform.InverseTransformPoint(ray.point);
-				v.angle = getVectorAngle(true,v.pos.x, v.pos.y);					// store angle without object rotation -> consistency for sorting
+				v.pos = new Vector3(v.pos.x, v.pos.y, 0);
+				v.angle = getVectorAngle(true,v.pos.x, v.pos.y);
 				allVertices.Add(v);
 
-				//if(theta == 0 || theta == Mathf.RoundToInt(RangeAngle)) {			// we only need the two border angle rays, if they collide
-					//Debug.DrawLine(transform.position, ray.point, Color.red);
-				//	v.pos = transform.InverseTransformPoint(ray.point);
-				//	v.angle = getVectorAngle(true,v.pos.x, v.pos.y);				// store angle without object rotation -> consistency for sorting
-					//allVertices.Add(v);
-				//}
+			} else {
+				v.pos = transform.InverseTransformPoint(v.pos);
+				v.angle = getVectorAngle(true,v.pos.x, v.pos.y);// store angle without object rotation -> consistency for sorting
+				allVertices.Add(v);
+
 			}
+			if(debugLines == true)
+				Debug.DrawLine(transform.position, transform.TransformPoint(new Vector3(v.pos.x,v.pos.y, 0)), Color.cyan);
 			
 		}
 
@@ -649,7 +764,9 @@ public class DynamicLight : MonoBehaviour {
 		
 		Vector2 [] uvs = new Vector2[initVerticesMeshLight.Length];
 		for (int i = 0; i < initVerticesMeshLight.Length; i++) {
-			uvs[i] = new Vector2(initVerticesMeshLight[i].x, initVerticesMeshLight[i].y);		
+
+				uvs[i] = new Vector2(initVerticesMeshLight[i].x, initVerticesMeshLight[i].y);	
+	
 		}
 		lightMesh.uv = uvs;
 		
@@ -681,6 +798,8 @@ public class DynamicLight : MonoBehaviour {
 
 		if(recalculateNormals == true)
 			lightMesh.RecalculateNormals();
+
+		lightMesh.RecalculateBounds();
 
 		GetComponent<Renderer>().sharedMaterial = lightMaterial;
 	}

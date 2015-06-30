@@ -4,27 +4,30 @@ using System.Collections;
 public class ReachedEventManager : MonoBehaviour {
 
 	DynamicLight light2d;
-	//GameObject myGO;
 	GameObject[] GOsReached;
 	TextMesh text;
 
 
 
-	// Use this for initialization
+
 	void Start () {
+		// Find and set 2DLight Object //
 		light2d = GameObject.Find("2DLight").GetComponent<DynamicLight>() as DynamicLight;
-		//myGO = GameObject.Find("hexagon");
+
+		// Find and set text obj //
 		text = GameObject.Find("text").GetComponent<TextMesh>();
 
 		// Add listener
 		light2d.OnReachedGameObjects += waveReach;
 
-
-
 	}
 
 
 
+	//- this function iterate in each object passed by 2DLigh script and compare if this object is the player
+	//-- game object --//
+
+	//-- THIS SCRIPT MUST BE ATTACHED TO PLAYER GO --//
 
 	void waveReach(GameObject[] g){
 

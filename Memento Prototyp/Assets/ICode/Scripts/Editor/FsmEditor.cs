@@ -688,7 +688,7 @@ namespace ICode.FSMEditor{
 			}		
 		}
 
-		[DrawGizmo(GizmoType.SelectedOrChild | GizmoType.NotSelected)]
+		[DrawGizmo(GizmoType.InSelectionHierarchy | GizmoType.NotInSelectionHierarchy)]
 		static void DrawGameObjectName(Transform transform, GizmoType gizmoType)
 		{   
 			ICodeBehaviour behaviour = transform.GetComponent<ICodeBehaviour> ();

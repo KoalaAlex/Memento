@@ -1,0 +1,54 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: false
+  xy: 2, 115
+  size: 686, 899
+  orig: 686, 899
+  offset: 0, 0
+  index: -1
+Mask
+  rotate: false
+  xy: 690, 514
+  size: 201, 500
+  orig: 201, 500
+  offset: 0, 0
+  index: -1
+left_arm
+  rotate: false
+  xy: 690, 278
+  size: 322, 234
+  orig: 322, 234
+  offset: 0, 0
+  index: -1
+left_leg
+  rotate: false
+  xy: 690, 2
+  size: 270, 274
+  orig: 270, 274
+  offset: 0, 0
+  index: -1
+right_arm
+  rotate: false
+  xy: 893, 859
+  size: 128, 155
+  orig: 128, 155
+  offset: 0, 0
+  index: -1
+
+skeleton2.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+right_leg
+  rotate: true
+  xy: 2, 2
+  size: 199, 281
+  orig: 199, 281
+  offset: 0, 0
+  index: -1

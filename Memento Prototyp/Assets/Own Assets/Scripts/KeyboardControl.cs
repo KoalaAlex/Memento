@@ -12,7 +12,7 @@ namespace UnityStandardAssets._2D
 		private PlatformerCharacter2D m_Character;
 		private bool m_Jump;
 
-		// Alex
+		// wird für die Lichtbewegung verwendet (MoveLight)
 		public static bool uiControlActive = false;
 
 		// Use this for initialization
@@ -33,7 +33,7 @@ namespace UnityStandardAssets._2D
 		private void FixedUpdate()
 		{
 			// Read the inputs.
-			bool crouch = Input.GetKey(KeyCode.LeftControl);
+			bool crouch = false;
 			float h = Input.GetAxis("HorizontalKeyboard");
 			// Alex
 			if(h != 0 || m_Jump){

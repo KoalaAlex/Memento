@@ -89,7 +89,7 @@ public class DOFProEditor : Editor
         //Load dynamic resources
 		string pluginPath = FilePathToAssetPath( GetPluginPath() );
 		
-		var lensTexture = Resources.LoadAssetAtPath<Texture2D>(pluginPath + "/Lens/lens_01.png");
+		var lensTexture = AssetDatabase.LoadAssetAtPath<Texture2D>(pluginPath + "/Lens/lens_01.png");
 		
 		if (null == lensDirtTexture.objectReferenceValue) {
 			lensDirtTexture.objectReferenceValue = lensTexture;
@@ -99,7 +99,7 @@ public class DOFProEditor : Editor
 	    string logoPath = Path.Combine(pluginPath, "Editor");
         logoPath = Path.Combine(logoPath, "banner.png");
 
-        logo = Resources.LoadAssetAtPath<Texture2D>(logoPath);
+        logo = AssetDatabase.LoadAssetAtPath<Texture2D>(logoPath);
 
 	    if (null == logo)
             Debug.LogError("null == logo");
