@@ -1,0 +1,54 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Dress
+  rotate: false
+  xy: 340, 99
+  size: 273, 904
+  orig: 273, 904
+  offset: 0, 0
+  index: -1
+Face
+  rotate: false
+  xy: 615, 536
+  size: 272, 467
+  orig: 272, 467
+  offset: 0, 0
+  index: -1
+Foot1
+  rotate: false
+  xy: 615, 2
+  size: 216, 532
+  orig: 216, 532
+  offset: 0, 0
+  index: -1
+Haire
+  rotate: false
+  xy: 2, 85
+  size: 336, 918
+  orig: 336, 918
+  offset: 0, 0
+  index: -1
+
+skeleton2.png
+size: 512,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Arm
+  rotate: false
+  xy: 2, 2
+  size: 162, 660
+  orig: 162, 660
+  offset: 0, 0
+  index: -1
+Arm_Rechts
+  rotate: false
+  xy: 166, 2
+  size: 162, 660
+  orig: 162, 660
+  offset: 0, 0
+  index: -1
