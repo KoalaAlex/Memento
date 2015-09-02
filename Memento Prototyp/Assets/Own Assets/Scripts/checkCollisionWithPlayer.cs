@@ -3,21 +3,20 @@ using System.Collections;
 using ICode;
 
 public class checkCollisionWithPlayer : MonoBehaviour {
-	private GameObject player;
 	public GameObject enemyDmgRadius;
+	public Collider2D enemyDamageCollider;
+	public bool attackIntersectsPlayer = false;
+
 	private ICodeBehaviour behavior;
-	public float shieldArea = 180;
 
 	void Start(){
-		player = GameObject.FindGameObjectWithTag("Player");
-		enemyDmgRadius = GameObject.FindGameObjectWithTag("EnemyDmgRadius");
 		behavior = gameObject.GetBehaviour();
 	}
 
-	void CheckIfEnemyAttackIntersectsWithPlayer(float radius){
-		if(Vector3.Distance(player.transform.position, enemyDmgRadius.transform.position) < radius){
+	public void CheckIfEnemyAttackIntersectsWithPlayer(){
+		if(attackIntersectsPlayer){
 			behavior.stateMachine.SetVariable("doDamage", true);
 		}
-		print (Vector3.Distance(player.transform.position, enemyDmgRadius.transform.position));
+		print ("Script is working");
 	}
 }

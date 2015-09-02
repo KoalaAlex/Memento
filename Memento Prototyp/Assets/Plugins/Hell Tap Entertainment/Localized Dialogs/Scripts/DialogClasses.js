@@ -238,6 +238,7 @@ enum DS_DATA_ANCHOR{Top,Middle,Bottom}
 enum DS_DATA_FORMAT{Text,Number};
 
 class DS_Localizations{
+	var english : DS_Language = new DS_Language();		// This is used to backup the original english
 	var chinese : DS_Language = new DS_Language();
 	var korean : DS_Language = new DS_Language();
 	var japanese : DS_Language = new DS_Language();
@@ -369,7 +370,18 @@ class DS_Actions{
 	#if UNITY_POSTBRUTAL
 		var postBrutal : DSActionsFor_PostBrutal = new DSActionsFor_PostBrutal();
 	#endif
+
+	// =====================
+	// lOCALIZATION ACTIONS
+	// =====================
+
+	var setNewLanguage : DS_SetNewLanguage = DS_SetNewLanguage.No;		// Should we update the localization Language?
+	var updateGUISkins : boolean = true;								// This is used if "setNewLanguage" is Not No.
 }
+
+	// Set New Language
+	enum DS_SetNewLanguage{No,AutoDetect,English,Chinese,Korean,Japanese,Spanish,Italian,German,French,Portuguese,Russian}
+
  	// POST BRUTAL CUSTOM ACTIONS CLASS
  	#if UNITY_POSTBRUTAL
 		class DSActionsFor_PostBrutal{
@@ -422,6 +434,7 @@ class DS_Actions{
 	}
 		// Localized Arguments
 		class DS_LocalizedTokenArgument{
+			var english : String = "";												// This is set automatically
 			var chinese : String = "";
 			var korean : String = "";
 			var japanese : String = "";

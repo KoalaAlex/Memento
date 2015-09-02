@@ -1,0 +1,60 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Muscle_Skull/Body
+  rotate: false
+  xy: 1, 1
+  size: 727, 1020
+  orig: 727, 1020
+  offset: 0, 0
+  index: -1
+Muscle_Skull/Leg Left
+  rotate: false
+  xy: 729, 269
+  size: 147, 358
+  orig: 147, 358
+  offset: 0, 0
+  index: -1
+Muscle_Skull/Leg Right
+  rotate: false
+  xy: 729, 628
+  size: 192, 393
+  orig: 192, 393
+  offset: 0, 0
+  index: -1
+
+skeleton2.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Muscle_Skull/Hand left
+  rotate: true
+  xy: 1, 549
+  size: 450, 731
+  orig: 450, 731
+  offset: 0, 0
+  index: -1
+Muscle_Skull/Hand_right
+  rotate: true
+  xy: 1, 1
+  size: 547, 708
+  orig: 547, 708
+  offset: 0, 0
+  index: -1
+
+skeleton3.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Muscle_Skull/Head
+  rotate: false
+  xy: 1, 1
+  size: 784, 591
+  orig: 784, 591
+  offset: 0, 0
+  index: -1

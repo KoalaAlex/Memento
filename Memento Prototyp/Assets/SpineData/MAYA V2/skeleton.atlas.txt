@@ -1,0 +1,103 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Dress
+  rotate: false
+  xy: 340, 99
+  size: 273, 904
+  orig: 273, 904
+  offset: 0, 0
+  index: -1
+Face
+  rotate: false
+  xy: 615, 536
+  size: 272, 467
+  orig: 272, 467
+  offset: 0, 0
+  index: -1
+Haire
+  rotate: false
+  xy: 2, 85
+  size: 336, 918
+  orig: 336, 918
+  offset: 0, 0
+  index: -1
+neu/0_PSD/Face_scary
+  rotate: false
+  xy: 615, 67
+  size: 272, 467
+  orig: 272, 467
+  offset: 0, 0
+  index: -1
+neu/Arm_Links
+  rotate: false
+  xy: 889, 458
+  size: 81, 158
+  orig: 81, 158
+  offset: 0, 0
+  index: -1
+neu/Foot
+  rotate: true
+  xy: 889, 618
+  size: 216, 112
+  orig: 216, 112
+  offset: 0, 0
+  index: -1
+neu/Hand_Rechts
+  rotate: true
+  xy: 2, 2
+  size: 81, 165
+  orig: 81, 165
+  offset: 0, 0
+  index: -1
+neu/Upper_Leg
+  rotate: false
+  xy: 889, 836
+  size: 133, 167
+  orig: 133, 167
+  offset: 0, 0
+  index: -1
+
+skeleton2.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+neu/Lower_Leg
+  rotate: true
+  xy: 2, 27
+  size: 137, 408
+  orig: 137, 408
+  offset: 0, 0
+  index: -1
+neu/Oberarm_Links
+  rotate: true
+  xy: 412, 2
+  size: 162, 343
+  orig: 162, 343
+  offset: 0, 0
+  index: -1
+neu/Oberarm_Rechts
+  rotate: true
+  xy: 412, 2
+  size: 162, 343
+  orig: 162, 343
+  offset: 0, 0
+  index: -1
+neu/Unterarm_Links
+  rotate: true
+  xy: 757, 2
+  size: 162, 228
+  orig: 162, 228
+  offset: 0, 0
+  index: -1
+neu/Unterarm_Rechts
+  rotate: true
+  xy: 757, 2
+  size: 162, 228
+  orig: 162, 228
+  offset: 0, 0
+  index: -1

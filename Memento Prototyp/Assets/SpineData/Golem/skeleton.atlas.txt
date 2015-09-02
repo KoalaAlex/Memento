@@ -1,0 +1,69 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Golem/arm_left
+  rotate: false
+  xy: 428, 333
+  size: 212, 198
+  orig: 212, 198
+  offset: 0, 0
+  index: -1
+Golem/arm_right
+  rotate: false
+  xy: 657, 207
+  size: 181, 176
+  orig: 181, 176
+  offset: 0, 0
+  index: -1
+Golem/body
+  rotate: false
+  xy: 1, 321
+  size: 426, 696
+  orig: 426, 696
+  offset: 0, 0
+  index: -1
+Golem/foot_left
+  rotate: false
+  xy: 759, 384
+  size: 256, 312
+  orig: 256, 312
+  offset: 0, 0
+  index: -1
+Golem/foot_right
+  rotate: false
+  xy: 759, 697
+  size: 261, 320
+  orig: 261, 320
+  offset: 0, 0
+  index: -1
+Golem/hand_left
+  rotate: false
+  xy: 428, 532
+  size: 330, 485
+  orig: 330, 485
+  offset: 0, 0
+  index: -1
+Golem/hand_right
+  rotate: true
+  xy: 1, 1
+  size: 319, 492
+  orig: 319, 492
+  offset: 0, 0
+  index: -1
+Golem/knee_left
+  rotate: true
+  xy: 494, 144
+  size: 188, 162
+  orig: 188, 162
+  offset: 0, 0
+  index: -1
+Golem/knee_right
+  rotate: false
+  xy: 839, 207
+  size: 179, 176
+  orig: 179, 176
+  offset: 0, 0
+  index: -1

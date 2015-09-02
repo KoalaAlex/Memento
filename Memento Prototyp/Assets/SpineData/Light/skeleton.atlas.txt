@@ -1,0 +1,60 @@
+
+skeleton.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Origami_V2-2
+  rotate: true
+  xy: 584, 373
+  size: 639, 371
+  orig: 639, 371
+  offset: 0, 0
+  index: -1
+Origami_V2-5
+  rotate: true
+  xy: 1, 1
+  size: 659, 549
+  orig: 659, 549
+  offset: 0, 0
+  index: -1
+Origami_V2-6
+  rotate: false
+  xy: 222, 661
+  size: 361, 351
+  orig: 361, 351
+  offset: 0, 0
+  index: -1
+Origami_V2-7
+  rotate: false
+  xy: 1, 871
+  size: 220, 141
+  orig: 220, 141
+  offset: 0, 0
+  index: -1
+
+skeleton2.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Origami_V2-3
+  rotate: false
+  xy: 1, 1
+  size: 659, 707
+  orig: 659, 707
+  offset: 0, 0
+  index: -1
+
+skeleton3.png
+size: 512,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Origami_V2-1
+  rotate: false
+  xy: 1, 1
+  size: 389, 703
+  orig: 389, 703
+  offset: 0, 0
+  index: -1

@@ -19,6 +19,7 @@ namespace UnityStandardAssets._2D
         private Animator m_Anim;            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+		private bool doubleJump = false;
 
         private void Awake()
         {
@@ -94,10 +95,16 @@ namespace UnityStandardAssets._2D
                 // Add a vertical force to the player.
                 m_Grounded = false;
                 m_Anim.SetBool("Ground", false);
-				print ("Boden ");
+				//print ("Boden ");
 				m_Rigidbody2D.velocity = new Vector2(0f, 0f);
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             }
+			// double jump
+			else if(doubleJump && jump){
+				m_Rigidbody2D.velocity = new Vector2(0f, 0f);
+				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+				doubleJump = false;
+			}
         }
 
 
@@ -111,5 +118,10 @@ namespace UnityStandardAssets._2D
             theScale.x *= -1;
             transform.localScale = theScale;
         }
+
+		// Alex
+		public void MoveClimb(float vertical){
+			m_Rigidbody2D.velocity = new Vector2(0f, vertical);
+		}
     }
 }

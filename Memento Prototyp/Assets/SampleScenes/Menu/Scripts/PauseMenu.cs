@@ -7,12 +7,12 @@ public class PauseMenu : MonoBehaviour
     private Toggle m_MenuToggle;
 	private float m_TimeScaleRef = 1f;
     private float m_VolumeRef = 1f;
-    private bool m_Paused;
+    private bool m_Paused = false;
 
 
     void Awake()
     {
-        m_MenuToggle = GetComponent <Toggle> ();
+        m_MenuToggle = gameObject.GetComponent<Toggle>();
 	}
 
 

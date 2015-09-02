@@ -1,0 +1,46 @@
+fileFormatVersion: 2
+guid: e58821d20a8199b4eb066f86ecbc79ba
+labels:
+- music
+- seamless
+- loop
+- gapless
+- audio
+- imphenzia
+- loops
+- electronic
+- soundtrack
+- wav
+- ogg
+- melodic
+- melody
+- dark
+- wave
+- calm
+- relaxing
+- energetic
+- space
+- universe
+- astral
+- astro
+- stellar
+- cosmos
+- galaxy
+- nebula
+AudioImporter:
+  serializedVersion: 6
+  defaultSettings:
+    loadType: 1
+    sampleRateSetting: 0
+    sampleRateOverride: 0
+    compressionFormat: 0
+    quality: .5
+    conversionMode: 0
+  platformSettingOverrides: {}
+  forceToMono: 0
+  preloadAudioData: 1
+  loadInBackground: 0
+  3D: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

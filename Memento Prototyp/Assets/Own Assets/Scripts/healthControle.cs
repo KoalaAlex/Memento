@@ -34,7 +34,7 @@ public class healthControle : MonoBehaviour {
 	*/
 
 	// erhält Schaden in Höhe von dmg
-	void TakeDamage(int dmg){
+	public void TakeDamage(int dmg){
 		currentHP = currentHP - dmg;
 		if(currentHP < 0)
 		{
@@ -45,7 +45,7 @@ public class healthControle : MonoBehaviour {
 	}
 
 	// stellt die Lebenspunkte wieder her in höhe von hp
-	void healHP(int hp){
+	public void healHP(int hp){
 		currentHP = currentHP + hp;
 		if(currentHP > startHealthPoints){
 			currentHP = startHealthPoints;

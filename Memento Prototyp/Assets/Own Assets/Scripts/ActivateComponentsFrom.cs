@@ -3,18 +3,13 @@ using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class ActivateComponentsFrom : MonoBehaviour {
-	private GameObject goPlayer;
 	public GameObject[] goEnemys;
-	public string nameComponent = "Platformer2DUserControl";
-
-	// Use this for initialization
-	void Awake () {
-		goPlayer = GameObject.FindGameObjectWithTag("Player");
-	} 
+	public string nameComponent = "KeyboardControl";
 
 	/* Platformer2DUserControl / KeyboardControl */
-	void DeactivateActions(){
-		goPlayer.GetComponent<UnityStandardAssets._2D.Platformer2DUserControl>().enabled = false;
+	public void DeactivateActions(){
+		globalVariables.player.GetComponent<UnityStandardAssets._2D.Platformer2DUserControl>().enabled = false;
+		globalVariables.levi.GetComponent<MoveMultiTouch>().enabled = false;
 		for (int i = 0; i < goEnemys.Length; i++){
 			goEnemys[i].GetComponent<ICode.ICodeTrigger2D>().enabled = false;
 		}
@@ -23,7 +18,8 @@ public class ActivateComponentsFrom : MonoBehaviour {
 	IEnumerator ActivateActions(){
 		yield return new WaitForSeconds(1);
 		print ("DIalog ENDE!");
-		goPlayer.GetComponent<UnityStandardAssets._2D.Platformer2DUserControl>().enabled = true;
+		globalVariables.player.GetComponent<UnityStandardAssets._2D.Platformer2DUserControl>().enabled = true;
+		globalVariables.levi.GetComponent<MoveMultiTouch>().enabled = true;
 		for (int i = 0; i < goEnemys.Length; i++){
 			goEnemys[i].GetComponent<ICode.ICodeTrigger2D>().enabled = true;
 		}
