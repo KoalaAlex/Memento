@@ -758,6 +758,7 @@
      <Compile Include="Assets\Own Assets\Scripts\moveEnemySpine.cs" />
      <Compile Include="Assets\Own Assets\Scripts\moveEnemyWolf.cs" />
      <Compile Include="Assets\Own Assets\Scripts\moveInCircle.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\playVideo.cs" />
      <Compile Include="Assets\Own Assets\Scripts\resetAniationShuriken.cs" />
      <Compile Include="Assets\Own Assets\Scripts\updatePosition.cs" />
      <Compile Include="Assets\PVZ\PVZ Character Based Parallax\Scripts\Camera_FollowChar.cs" />
