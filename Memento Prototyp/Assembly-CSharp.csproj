@@ -714,12 +714,15 @@
      <Compile Include="Assets\Own Assets\Scripts\ActivateComponentsFrom.cs" />
      <Compile Include="Assets\Own Assets\Scripts\AutoAnimation.cs" />
      <Compile Include="Assets\Own Assets\Scripts\CameraSizeTriggerScript.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\CheckpointTrigger.cs" />
      <Compile Include="Assets\Own Assets\Scripts\ClimbManagerScript.cs" />
      <Compile Include="Assets\Own Assets\Scripts\EnemyAttackTriggerScript.cs" />
      <Compile Include="Assets\Own Assets\Scripts\GameControl.cs" />
      <Compile Include="Assets\Own Assets\Scripts\JumpTrigger.cs" />
      <Compile Include="Assets\Own Assets\Scripts\KeyboardClimb.cs" />
      <Compile Include="Assets\Own Assets\Scripts\KeyboardControl.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\Killzone.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\KillzonetoCheckpoint.cs" />
      <Compile Include="Assets\Own Assets\Scripts\LeviControleScript.cs" />
      <Compile Include="Assets\Own Assets\Scripts\LeviLookPosition.cs" />
      <Compile Include="Assets\Own Assets\Scripts\LightAlive.cs" />
@@ -734,6 +737,8 @@
      <Compile Include="Assets\Own Assets\Scripts\QuickTimeBubbleManagerScript.cs" />
      <Compile Include="Assets\Own Assets\Scripts\QuickTimeBubbleScript.cs" />
      <Compile Include="Assets\Own Assets\Scripts\RaycastMask.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\SandLevelCutscene1.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\SandLevelCutscene1_1.cs" />
      <Compile Include="Assets\Own Assets\Scripts\SwitchUI.cs" />
      <Compile Include="Assets\Own Assets\Scripts\SwitchUI1.cs" />
      <Compile Include="Assets\Own Assets\Scripts\Tiling.cs" />
@@ -746,8 +751,10 @@
      <Compile Include="Assets\Own Assets\Scripts\collectableDiaryScript.cs" />
      <Compile Include="Assets\Own Assets\Scripts\collectableSphereScript.cs" />
      <Compile Include="Assets\Own Assets\Scripts\createMeteorShower.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\disablecontrols.cs" />
      <Compile Include="Assets\Own Assets\Scripts\enableAttackParticle.cs" />
      <Compile Include="Assets\Own Assets\Scripts\enablePowerAura.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\enablecontrols.cs" />
      <Compile Include="Assets\Own Assets\Scripts\endLevel.cs" />
      <Compile Include="Assets\Own Assets\Scripts\firstEnemyEncounter.cs" />
      <Compile Include="Assets\Own Assets\Scripts\globalVariables.cs" />
