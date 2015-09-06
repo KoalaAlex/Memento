@@ -71,6 +71,7 @@
      <None Include="Assets\2DLightAssets\Shaders\DepthMask.shader" />
      <None Include="Assets\Mad Level Manager\Examples\Example 5 - Unity 5\README.txt" />
      <None Include="Assets\Mad Level Manager\Themes\Theme2\Font\abeezee-glyphs.txt" />
+     <None Include="Assets\Spine\Flag\skeleton.atlas.txt" />
      <None Include="Assets\Mad Level Manager\Themes\Theme2\Font\abeezee-license.txt" />
      <None Include="Assets\Spine\Stone Child\skeleton.atlas.txt" />
      <None Include="Assets\SpineData\Light\skeleton.atlas.txt" />
@@ -103,6 +104,7 @@
      <None Include="Assets\Mad Level Manager\Scripts\Mad2D\Resources\Shaders\Font White DB.shader" />
      <None Include="Assets\SpineData\Maya_Final1\skeleton.json.txt" />
      <None Include="Assets\Resources\own_gesture.xml" />
+     <None Include="Assets\Spine\Flag\skeleton.json.txt" />
      <None Include="Assets\ICode\Version Changes.txt" />
      <None Include="Assets\SpineData\Shadow\skeleton.atlas.txt" />
      <None Include="Assets\SpineData\Golem\skeleton.atlas.txt" />
