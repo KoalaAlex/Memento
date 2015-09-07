@@ -20,6 +20,14 @@ namespace UnityStandardAssets._2D
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 		private bool doubleJump = true;
+		private Vector3 camPosLeft = new Vector3(-3,3,-3);
+		private Vector3 camPosRight = new Vector3(3,3,-3);
+		private Transform camPivot;
+		private bool camToRight = false;
+		private bool lerpActive = false;
+		private float percentLerp = 0f;
+		private float destinationX = 0f;
+		private float prevPosX = 0f;
 
         private void Awake()
         {
@@ -28,6 +36,7 @@ namespace UnityStandardAssets._2D
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
+			camPivot = GameObject.FindGameObjectWithTag ("CameraPivot").transform;
         }
 
 
@@ -47,6 +56,11 @@ namespace UnityStandardAssets._2D
 
             // Set the vertical animation
             m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+
+			// if Lerp
+			if(lerpActive){
+				LerpCam();
+			}
         }
 
 
@@ -81,12 +95,14 @@ namespace UnityStandardAssets._2D
                 {
                     // ... flip the player.
                     Flip();
+					FlipCamera();
                 }
                     // Otherwise if the input is moving the player left and the player is facing right...
                 else if (move < 0 && m_FacingRight)
                 {
                     // ... flip the player.
                     Flip();
+					FlipCamera();
                 }
             }
             // If the player should jump...
@@ -107,7 +123,19 @@ namespace UnityStandardAssets._2D
 				doubleJump = false;
 			}
         }
-
+		private void FlipCamera(){
+			camToRight = !camToRight;
+			if(camToRight){
+				prevPosX = camPivot.localPosition.x;
+				destinationX = camPosLeft.x;
+			}
+			else {
+				prevPosX = camPivot.localPosition.x;
+				destinationX = camPosRight.x;
+			}
+			percentLerp = 0f;
+			lerpActive = true;
+		}
 
         private void Flip()
         {
@@ -121,8 +149,18 @@ namespace UnityStandardAssets._2D
         }
 
 		// Alex
-		public void MoveClimb(float vertical){
-			m_Rigidbody2D.velocity = new Vector2(0f, vertical);
+		public void MoveClimb(float horizontal, float vertical){
+			Vector2 lovcalVel = transform.TransformDirection(new Vector2(horizontal, vertical));
+			// local Transform
+			m_Rigidbody2D.velocity = lovcalVel;
+		}
+
+		void LerpCam(){
+			if(percentLerp >= 1f){
+				lerpActive = false;
+			}
+			camPivot.localPosition = new Vector3 (Mathf.Lerp (prevPosX, destinationX, percentLerp), camPivot.localPosition.y, camPivot.localPosition.y);
+			percentLerp += 0.02f;
 		}
     }
 }

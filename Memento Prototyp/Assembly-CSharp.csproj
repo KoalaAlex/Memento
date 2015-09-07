@@ -718,6 +718,7 @@
      <Compile Include="Assets\Own Assets\Scripts\CheckpointTrigger.cs" />
      <Compile Include="Assets\Own Assets\Scripts\ClimbManagerScript.cs" />
      <Compile Include="Assets\Own Assets\Scripts\EnemyAttackTriggerScript.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\FogRadiusTrigger.cs" />
      <Compile Include="Assets\Own Assets\Scripts\GameControl.cs" />
      <Compile Include="Assets\Own Assets\Scripts\JumpTrigger.cs" />
      <Compile Include="Assets\Own Assets\Scripts\KeyboardClimb.cs" />
@@ -752,11 +753,13 @@
      <Compile Include="Assets\Own Assets\Scripts\changeScene.cs" />
      <Compile Include="Assets\Own Assets\Scripts\checkCollisionWithPlayer.cs" />
      <Compile Include="Assets\Own Assets\Scripts\climbBottomScript.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\climbEventCollider.cs" />
      <Compile Include="Assets\Own Assets\Scripts\climbTopCollider.cs" />
      <Compile Include="Assets\Own Assets\Scripts\climbTriggerScript.cs" />
      <Compile Include="Assets\Own Assets\Scripts\collectableDiaryScript.cs" />
      <Compile Include="Assets\Own Assets\Scripts\collectableSphereScript.cs" />
      <Compile Include="Assets\Own Assets\Scripts\createMeteorShower.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\deleteAfterTime.cs" />
      <Compile Include="Assets\Own Assets\Scripts\disablecontrols.cs" />
      <Compile Include="Assets\Own Assets\Scripts\enableAttackParticle.cs" />
      <Compile Include="Assets\Own Assets\Scripts\enablePowerAura.cs" />
@@ -765,14 +768,17 @@
      <Compile Include="Assets\Own Assets\Scripts\firstEnemyEncounter.cs" />
      <Compile Include="Assets\Own Assets\Scripts\globalVariables.cs" />
      <Compile Include="Assets\Own Assets\Scripts\golemHandAttack.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\golemSetStartVariables.cs" />
      <Compile Include="Assets\Own Assets\Scripts\healthControle.cs" />
      <Compile Include="Assets\Own Assets\Scripts\loadPrefabDialog.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\loadScene.cs" />
      <Compile Include="Assets\Own Assets\Scripts\moveEnemy.cs" />
      <Compile Include="Assets\Own Assets\Scripts\moveEnemySpine.cs" />
      <Compile Include="Assets\Own Assets\Scripts\moveEnemyWolf.cs" />
      <Compile Include="Assets\Own Assets\Scripts\moveInCircle.cs" />
      <Compile Include="Assets\Own Assets\Scripts\playAudio.cs" />
      <Compile Include="Assets\Own Assets\Scripts\playVideo.cs" />
+     <Compile Include="Assets\Own Assets\Scripts\punchTriggerScript.cs" />
      <Compile Include="Assets\Own Assets\Scripts\resetAniationShuriken.cs" />
      <Compile Include="Assets\Own Assets\Scripts\updatePosition.cs" />
      <Compile Include="Assets\PVZ\PVZ Character Based Parallax\Scripts\Camera_FollowChar.cs" />
@@ -786,6 +792,7 @@
      <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\ReturnToMainMenu.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
+     <Compile Include="Assets\onlySandLevelGlobal.cs" />
      <Compile Include="Assets\spine-csharp\Properties\AssemblyInfo.cs" />
      <Compile Include="Assets\spine-csharp\src\Animation.cs" />
      <Compile Include="Assets\spine-csharp\src\AnimationState.cs" />
@@ -854,6 +861,7 @@
      <None Include="Assets\Mad Level Manager\Scripts\Mad2D\Resources\Shaders\Font DB.shader" />
      <None Include="Assets\Spine\Bone Man\skeleton.atlas.txt" />
      <None Include="Assets\2DLightAssets\Shaders\VertexColor.shader" />
+     <None Include="Assets\SpineData\Golem\skeleton.json.txt" />
      <None Include="Assets\SpineData\skeleton.json.txt" />
      <None Include="Assets\SpineData\MAYA V2\skeleton.json.txt" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAdd_Alpha8.shader" />
@@ -877,7 +885,6 @@
      <None Include="Assets\Mad Level Manager\Scripts\Mad2D\Resources\Shaders\UnlitTransparentTint DB.shader" />
      <None Include="Assets\spine-unity\Assets\spine-unity\Shaders\Bones.shader" />
      <None Include="Assets\Forest Creatures Pack\Forest Golem\Read me.txt" />
-     <None Include="Assets\SpineData\Golem\skeleton.json.txt" />
      <None Include="Assets\spine-unity\Assets\spine-unity\Ghost\Shaders\SkeletonGhost.shader" />
      <None Include="Assets\FX Mega Pack 2\Shaders\Mobile Vertex Color Cull Off.shader" />
      <None Include="Assets\2DLightAssets\Shaders\VertexColor 1.shader" />

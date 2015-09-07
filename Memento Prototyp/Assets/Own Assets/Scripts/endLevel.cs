@@ -7,7 +7,7 @@ public class endLevel : MonoBehaviour {
 	public GameObject destroyOnLeave;
 
 	void OnTriggerEnter2D(Collider2D coll){
-		// Give 1 Star
+		/* // Give 1 Star
 		MadLevelProfile.SetLevelBoolean(MadLevel.currentLevelName, "star_1", true);
 		// Complete CUrrent Level
 		if(destroyOnLeave != null){
@@ -16,6 +16,8 @@ public class endLevel : MonoBehaviour {
 		MadLevelProfile.SetCompleted(MadLevel.currentLevelName, true);
 		// Go to Menu
 		MadLevel.LoadFirst();
-		print ("END LEVEL!!!");
+		print ("END LEVEL!!!"); */
+
+		Application.LoadLevel ("_SandLevel1-1");
 	}
 }

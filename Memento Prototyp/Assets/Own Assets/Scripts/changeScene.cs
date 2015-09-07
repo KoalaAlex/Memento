@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class changeScene : MonoBehaviour {
+	public string name;
 
 	public void changeLevel(int index){
 		Application.LoadLevel(index);
@@ -11,4 +12,7 @@ public class changeScene : MonoBehaviour {
 		Application.LoadLevel(levelName);
 	}
 
+	public void changeByName(){
+		Application.LoadLevel(name);
+	}
 }

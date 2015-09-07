@@ -3,6 +3,7 @@ using System.Collections;
 using ICode;
 
 public class moveEnemySpine : MonoBehaviour {
+	public Transform plasma;
 
 	private float m_MaxSpeed = 4f;
 	private float m_JumpForce = 400f;
@@ -42,6 +43,7 @@ public class moveEnemySpine : MonoBehaviour {
 		{
 			skeletRoot.transform.position = new Vector3(skeletRoot.transform.position.x, skeletRoot.transform.position.y, -4f);
 			transform.Rotate(new Vector3(0f,180f,0f));
+			plasma.localPosition = new Vector3(0,0,-plasma.localPosition.z);
 			previouseLeft = left;
 		}
 		// Move the character

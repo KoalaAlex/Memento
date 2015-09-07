@@ -78,6 +78,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 			// Keyboard
 			//panelActive = false;
 			CrossPlatformInputManager.SetAxisZero("Horizontal");
+			CrossPlatformInputManager.SetAxisZero("Climb_H");
+			CrossPlatformInputManager.SetAxisZero("Climb_V");
 		}
 		
 		void MoveThisLight(){
@@ -85,13 +87,23 @@ namespace UnityStandardAssets.CrossPlatformInput
 			{
 				touchPositionWorld = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
 				if(!controleLevi){
-					MoveCharacterWithLight(Input.touches[0].position);
+					if(!ClimbManagerScript.climb){
+						MoveCharacterWithLight(Input.touches[0].position);
+					}
+					else {
+						MoveClimbCharacterWithLevi(Input.touches[0].position);
+					}
 				}
 			}
 			else{
 				touchPositionWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				if(!controleLevi){
-					MoveCharacterWithLight(Input.mousePosition);
+					if(!ClimbManagerScript.climb){
+						MoveCharacterWithLight(Input.mousePosition);
+					}
+					else {
+						MoveClimbCharacterWithLevi(Input.mousePosition);
+					}
 				}
 			}
 			// in Levi Radius
@@ -121,6 +133,39 @@ namespace UnityStandardAssets.CrossPlatformInput
 				JumpByMultiTouch();
 			}
 		}
+
+		//Climb 
+		void MoveClimbCharacterWithLevi(Vector2 pos){
+			if(pos.x > Screen.width/2 + 20){
+				CrossPlatformInputManager.SetAxisPositive("Climb_H");
+				print ("H+");
+			}
+			else if(pos.x < Screen.width/2 - 20)
+			{
+				CrossPlatformInputManager.SetAxisNegative("Climb_H");
+				print ("H-");
+			}
+			else
+			{
+				CrossPlatformInputManager.SetAxisZero("Climb_H");
+			}
+			
+			if(pos.y > Screen.height/2 + 20){
+				CrossPlatformInputManager.SetAxisPositive("Climb_V");
+				print ("V+");
+			}
+			else if(pos.y < Screen.height/2 - 20)
+			{
+				CrossPlatformInputManager.SetAxisNegative("Climb_V");
+				print ("V-");
+			}
+			else
+			{
+				CrossPlatformInputManager.SetAxisZero("Climb_V");
+			}
+			print ("SET INPUT");
+		}
+
 		/* KeyboardControl / Platformer2DUserControl*/
 		void MoveLightBehindPlayer(){
 			// Falls es ein UI Input gibt, dann füre die Positionsabfrage aus -- Alex

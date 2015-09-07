@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class globalVariables : MonoBehaviour {
 
@@ -25,6 +26,18 @@ public class globalVariables : MonoBehaviour {
 	public static GameObject quickTLeft;
 	public static GameObject nextPlatformBottom; 
 	public static bool lastPlatfrom = false;
+	public static GameObject presentPlatform;
+	public static GameObject climbButtonUI;
+	public static GameObject helperTextUI;
+	public static GameObject golem;
+	public static Animator golemAnimator;
+	public static bool isZoom = false;
+	public static bool isZoomOut = false;
+	public static Slider healthUI;
+
+	// Sand Level
+	public static GameObject Cutscene;
+
 	// Tutorial
 	void Awake () {
 		player = GameObject.FindGameObjectWithTag("Player");
@@ -37,19 +50,7 @@ public class globalVariables : MonoBehaviour {
 		controlActivator = GameObject.FindGameObjectWithTag("ControlActivator");
 		diarySitesUI = GameObject.FindGameObjectWithTag("DiarySitesUI");
 		sphereUI = GameObject.FindGameObjectWithTag("SphereUI");
+		healthUI = GameObject.FindGameObjectWithTag("Health").GetComponent<Slider>();
 	}
 
-
-	// Boss Fight
-	/*
-	void Start () {
-		player = GameObject.FindGameObjectWithTag("Player");
-		golemHand = GameObject.FindGameObjectWithTag("GolemHand");
-		golemHand.SetActive(false);
-		quickTRight = GameObject.FindGameObjectWithTag("QT Right");
-		quickTRight.SetActive(false);
-		quickTLeft = GameObject.FindGameObjectWithTag("QT Left");
-		quickTLeft.SetActive(false);
-	}
-	*/
 }

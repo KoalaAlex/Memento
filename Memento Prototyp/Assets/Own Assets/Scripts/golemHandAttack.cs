@@ -16,6 +16,10 @@ public class golemHandAttack : MonoBehaviour {
 
 	IEnumerator EndTime(){
 		yield return new WaitForSeconds(2);
+		// check if all reached
+		if(globalVariables.quickTLeft.activeSelf){
+			globalVariables.quickTLeft.GetComponent<QuickTimeBubbleManagerScript>().checkIfAllBubblesAreTriggered();
+		}
 		speed = 4f;
 		yield return new WaitForSeconds(1);
 		speed = prevSpeed;

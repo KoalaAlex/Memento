@@ -1,11 +1,30 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Own Assets/Scripts/SandLevelCutscene1_2.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Own Assets/Scripts/playAudio.cs">
     <Files>
-      <File FileName="Assets/Own Assets/Scripts/SandLevelCutscene1_2.cs" Line="32" Column="27" />
-      <File FileName="Assets/Own Assets/Scripts/enablecontrols.cs" Line="8" Column="4" />
-      <File FileName="Assets/Own Assets/Scripts/collectableSphereScript.cs" Line="20" Column="25" />
-      <File FileName="Assets/Own Assets/Scripts/KillzonetoCheckpoint.cs" Line="15" Column="4" />
+      <File FileName="Assets/Own Assets/Scripts/KillzonetoCheckpoint.cs" Line="27" Column="17" />
+      <File FileName="Assets/Own Assets/Scripts/disablecontrols.cs" Line="12" Column="2" />
+      <File FileName="Assets/Own Assets/Scripts/enablecontrols.cs" Line="8" Column="89" />
+      <File FileName="Assets/Own Assets/Scripts/SandLevelCutscene1_2.cs" Line="44" Column="70" />
+      <File FileName="Assets/Own Assets/Scripts/LightTriggerScript.cs" Line="60" Column="5" />
+      <File FileName="Assets/Own Assets/Scripts/deleteAfterTime.cs" Line="14" Column="3" />
+      <File FileName="Assets/Own Assets/Scripts/healthControle.cs" Line="68" Column="72" />
+      <File FileName="Assets/Own Assets/Scripts/collectableSphereScript.cs" Line="6" Column="35" />
+      <File FileName="Assets/Own Assets/Scripts/globalVariables.cs" Line="39" Column="35" />
+      <File FileName="Assets/onlySandLevelGlobal.cs" Line="8" Column="39" />
+      <File FileName="Assets/Own Assets/Scripts/loadScene.cs" Line="15" Column="39" />
+      <File FileName="Assets/Own Assets/Scripts/CameraSizeTriggerScript.cs" Line="26" Column="12" />
+      <File FileName="Assets/Own Assets/Scripts/QuickTimeBubbleManagerScript.cs" Line="35" Column="73" />
+      <File FileName="Assets/Own Assets/Scripts/golemHandAttack.cs" Line="23" Column="8" />
+      <File FileName="Assets/Own Assets/Scripts/FogRadiusTrigger.cs" Line="102" Column="55" />
+      <File FileName="Assets/Own Assets/Scripts/LeviLookPosition.cs" Line="15" Column="50" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" Line="58" Column="1" />
+      <File FileName="Assets/Own Assets/Scripts/ActivateAtStart.cs" Line="1" Column="1" />
+      <File FileName="Assets/Own Assets/Scripts/ActivateComponentsFrom.cs" Line="21" Column="62" />
+      <File FileName="Assets/Own Assets/Scripts/firstEnemyEncounter.cs" Line="34" Column="1" />
+      <File FileName="Assets/Own Assets/Scripts/endLevel.cs" Line="21" Column="43" />
+      <File FileName="Assets/Own Assets/Scripts/changeScene.cs" Line="16" Column="29" />
+      <File FileName="Assets/Own Assets/Scripts/playAudio.cs" Line="15" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

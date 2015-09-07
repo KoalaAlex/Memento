@@ -99,6 +99,7 @@
      <None Include="Assets\Mad Level Manager\Scripts\Mad2D\Resources\Shaders\Font DB.shader" />
      <None Include="Assets\Spine\Bone Man\skeleton.atlas.txt" />
      <None Include="Assets\2DLightAssets\Shaders\VertexColor.shader" />
+     <None Include="Assets\SpineData\Golem\skeleton.json.txt" />
      <None Include="Assets\SpineData\skeleton.json.txt" />
      <None Include="Assets\SpineData\MAYA V2\skeleton.json.txt" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAdd_Alpha8.shader" />
@@ -122,7 +123,6 @@
      <None Include="Assets\Mad Level Manager\Scripts\Mad2D\Resources\Shaders\UnlitTransparentTint DB.shader" />
      <None Include="Assets\spine-unity\Assets\spine-unity\Shaders\Bones.shader" />
      <None Include="Assets\Forest Creatures Pack\Forest Golem\Read me.txt" />
-     <None Include="Assets\SpineData\Golem\skeleton.json.txt" />
      <None Include="Assets\spine-unity\Assets\spine-unity\Ghost\Shaders\SkeletonGhost.shader" />
      <None Include="Assets\FX Mega Pack 2\Shaders\Mobile Vertex Color Cull Off.shader" />
      <None Include="Assets\2DLightAssets\Shaders\VertexColor 1.shader" />

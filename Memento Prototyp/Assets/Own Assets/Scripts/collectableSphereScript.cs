@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class collectableSphereScript : MonoBehaviour {
 	public Transform collectParticle;
-	public GameObject Cutscene;
 	
 	void OnTriggerEnter2D(){
 		IncreaseTheNumberOfDiarySites();
@@ -17,7 +16,7 @@ public class collectableSphereScript : MonoBehaviour {
 		globalVariables.sphereUI.GetComponent<Text>().text = "+ " + globalVariables.collectedSpheres;
 
 		if (globalVariables.collectedSpheres == 25) {
-			Cutscene.SetActive(true);
+			globalVariables.Cutscene.SetActive(true);
 		}
 	}
 }

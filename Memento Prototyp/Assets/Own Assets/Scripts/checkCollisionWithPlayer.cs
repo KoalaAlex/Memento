@@ -3,8 +3,6 @@ using System.Collections;
 using ICode;
 
 public class checkCollisionWithPlayer : MonoBehaviour {
-	public GameObject enemyDmgRadius;
-	public Collider2D enemyDamageCollider;
 	public bool attackIntersectsPlayer = false;
 
 	private ICodeBehaviour behavior;
@@ -16,6 +14,7 @@ public class checkCollisionWithPlayer : MonoBehaviour {
 	public void CheckIfEnemyAttackIntersectsWithPlayer(){
 		if(attackIntersectsPlayer){
 			behavior.stateMachine.SetVariable("doDamage", true);
+			print ("NO");
 		}
 		print ("Script is working");
 	}
