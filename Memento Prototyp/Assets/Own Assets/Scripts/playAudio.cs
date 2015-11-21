@@ -12,7 +12,9 @@ public class playAudio : MonoBehaviour {
 	private Image img;
 
 	void Start(){
-		img = fadePanel.GetComponent<Image> ();
+		if(fadePanel != null){
+			img = fadePanel.GetComponent<Image> ();
+		}
 	}
 
 	AudioSource audio;
@@ -32,8 +34,13 @@ public class playAudio : MonoBehaviour {
 		yield return new WaitForSeconds (0.02f);
 		if (img.color.a >= 1) {
 			Application.LoadLevel(changeLevelName);
+			CancelAllCaroutine();
 		} else {
 			StartCoroutine ("FadeIn");
 		}
+	}
+
+	public void CancelAllCaroutine(){
+		StopAllCoroutines();
 	}
 }

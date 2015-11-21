@@ -91,7 +91,9 @@ public class moveEnemySpine : MonoBehaviour {
 			skeletRoot.transform.position = new Vector3(skeletRoot.transform.position.x, skeletRoot.transform.position.y, -4f);
 			transform.Rotate(new Vector3(0f,180f,0f));
 			previouseLeft = left;
-			behaviour.SendEvent("Move", "");
+			if(behaviour != null){
+				behaviour.SendEvent("Move", "");
+			}
 		}
 	}
 }
